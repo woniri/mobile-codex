@@ -84,3 +84,27 @@ sub reuses that CLI's driver in guest mode.
 Upstream is GPL-3.0. The GitHub fork is public (forks of public repos
 cannot be private). Any distributed build of the modified app must stay
 GPL-3.0 with source available. Personal, undistributed use is unaffected.
+
+## Status (2026-11-02, JVM-tested core)
+
+Implemented in `app/src/main/java/dev/mobilecodex/app/main/`:
+
+- `Transcript.java` — app-owned neutral transcript (Base64 line format,
+  no JSON dependency, no Android SDK needed).
+- `MainAgentSession.java` — transcript plus the current main;
+  `setMain` between turns keeps history and seeds the new main.
+- `ClaudeMainDriver.java` — host-capable Claude CLI driver. One process
+  per turn, `--resume` for multi-turn, `--append-system-prompt` seeding
+  after a main switch, plain chat only (no tools yet).
+- `MainDriverTest.java` + `docs/main-agent/tests/fake-claude.py` — JVM
+  test harness with a fake CLI emitting the stream-json subset.
+
+Test result: 9/9 PASS (plain chat including escaped quotes and newlines
+in assistant text, main switch with transcript seeding, transcript
+serialize/deserialize round-trip). Run with plain javac/java, no Android
+SDK. Two real parser bugs were found and fixed by these tests
+(whitespace-tolerant text-block parsing, false key matches on values).
+
+Not yet tested: real `claude`/`agy` binaries (no CLIs or accounts here),
+and the Android app build/run itself (needs Android SDK + a device).
+Those are the next steps, not claimed here.

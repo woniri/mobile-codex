@@ -88,7 +88,7 @@ public interface MainDriver {
     }
 
     /** Open a session, optionally seeded with the app-owned transcript. */
-    void startSession(String transcriptJson, Listener listener) throws Exception;
+    void startSession(String transcript, Listener listener) throws Exception;
 
     /** Send a user message; events stream to the session listener. */
     void sendMessage(String text) throws Exception;
