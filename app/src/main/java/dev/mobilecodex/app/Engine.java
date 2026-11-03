@@ -15,6 +15,7 @@ import java.nio.file.Files;
 import java.util.*;
 import java.util.concurrent.*;
 import dev.mobilecodex.app.core.*;
+import dev.mobilecodex.app.main.MainRouting;
 import static dev.mobilecodex.app.core.Json.*;
 
 /** Owns one local app-server process, outside Activity/WebView lifecycle. */
@@ -88,6 +89,8 @@ public final class Engine {
     }
     private String toolRequestThread = "";
     private String permissionMode, approvalMode;
+    /** Main for the next new chat; the open chat stores its own "main" field. */
+    private String draftMain = AgentGroup.CODEX;
     private boolean chatIconsEnabled = true;
     private final Map<String, PendingRequest> requests = new LinkedHashMap<>();
     private final TerminalSession terminal = new TerminalSession((name, data) -> {
@@ -263,7 +266,7 @@ public final class Engine {
             "turnDiff", active == null ? "" : active.optString("turnDiff"), "messages", snapshotMessages(),
             "messageHistory", messageHistory(active == null ? null : active.optJSONArray("messages"), snapshotMessageStart()),
             "fastMode", active != null && active.optBoolean("fastMode"),
-            "agents", agentsView(), "agentProviders", uiJsonCopy(agentProviders), "agentRun", agentRunView(),
+            "agents", agentsView(), "main", currentMain(), "agentProviders", uiJsonCopy(agentProviders), "agentRun", agentRunView(),
             "pendingDeletionCount", pendingDeletionCount(), "devtools", devTools.status(), "linux", linux.status(),
             "phone", PhoneUseService.status(context), "phoneToolsAvailable", active == null || active.optInt("phoneToolsVersion") >= 1,
             "permissions", permissionMode, "approvalMode", approvalMode, "allFilesAccess", (Build.VERSION.SDK_INT >= 30 ? Environment.isExternalStorageManager() : context.checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE) == android.content.pm.PackageManager.PERMISSION_GRANTED),
@@ -752,6 +755,8 @@ public final class Engine {
                     }
                     case "chat.resume" -> { resume(args.getString("id")); draftAgents = new JSONArray(); reply.complete(snapshot(), null); }
                     case "chat.agents.set" -> { setAgents(args.optJSONArray("agents")); reply.complete(snapshot(), null); }
+                    case "main.list" -> reply.complete(mainList(), null);
+                    case "main.set" -> { setMain(args.optString("id", "")); reply.complete(snapshot(), null); }
                     case "chat.rename" -> { renameSession(args.getString("id"), args.getString("title")); publish(); reply.complete(snapshot(), null); }
                     case "chat.delete" -> {
                         boolean deletionPending = deleteSession(args.getString("id"));
@@ -1778,9 +1783,21 @@ public final class Engine {
         String targetRemote = candidateRemoteId.isBlank() ? activeCodexThreadId() : candidateRemoteId;
         JSONObject owner = candidate == null ? active : candidate;
         if (candidate != null && draftAgents.length() > 0) candidate.put("agents", new JSONArray(draftAgents.toString()));
-        List<String> targets = AgentGroup.grouped(owner) ? AgentGroup.targets(text, owner) : List.of(AgentGroup.CODEX);
+        if (candidate != null) candidate.put("main", draftMain);
+        String mainId = owner.optString("main", AgentGroup.CODEX);
+        if (consultPro && !AgentGroup.CODEX.equals(mainId))
+            throw new IOException(t("Pro 문의는 Codex 메인에서만 사용할 수 있습니다."));
+        ensureMainMember(owner, mainId);
+        List<String> mentioned = AgentGroup.mentions(text, AgentGroup.participants(owner));
+        List<String> enabledGuestIds = new ArrayList<>();
+        for (JSONObject guest : AgentGroup.enabled(owner)) enabledGuestIds.add(guest.optString("id"));
+        List<String> routed = MainRouting.selectTargets(mainId, mentioned, enabledGuestIds);
+        List<String> targets = routed != null ? routed
+            : (AgentGroup.grouped(owner) ? AgentGroup.targets(text, owner) : List.of(AgentGroup.CODEX));
         if (!targets.contains(AgentGroup.CODEX)) {
-            // Only invited agents were called; Codex reads this message on its next turn.
+            // Guest-only turn: with a non-Codex main this is the main turn
+            // (the main answers first via agents.run); Codex only sees the
+            // message if a later turn calls it explicitly.
             if (candidate != null) { active = candidate; threadId = candidateLocalId; serverThreadId = candidateRemoteId; sessions.put(active); }
             else if (activeCodexThreadId().isBlank() && !candidateRemoteId.isBlank()) { active.put("codexThreadId", candidateRemoteId); serverThreadId = candidateRemoteId; }
             active.getJSONArray("messages").put(userMessage(text, attachmentIds, skills, mentions));
@@ -2482,6 +2499,58 @@ public final class Engine {
         for (AgentTurn turn : run.active.values()) { active.put(turn.id); try { states.put(turn.id, turn.status); } catch (Exception ignored) {} }
         return obj("current", run.current, "active", active, "states", states, "queue", queue);
     }
+    /** Main answering this chat. New chats start with draftMain (default Codex). */
+    private String currentMain() {
+        return active == null ? draftMain : active.optString("main", AgentGroup.CODEX);
+    }
+
+    private JSONObject mainList() {
+        JSONArray mains = new JSONArray();
+        String current = currentMain();
+        for (String id : List.of(AgentGroup.CODEX, "claude", "gemini")) {
+            String provider = id.equals("gemini") ? "agy" : id;
+            String state = "unknown", auth = "unknown";
+            if (id.equals(AgentGroup.CODEX)) { state = ready ? "ready" : "unknown"; auth = account.length() > 0 ? "signed_in" : "unknown"; }
+            else for (int i = 0; i < agentProviders.length(); i++) {
+                JSONObject p = agentProviders.optJSONObject(i);
+                if (p != null && p.optString("id").equals(provider)) { state = p.optString("state", state); auth = p.optString("auth", auth); }
+            }
+            mains.put(obj("id", id, "name", AgentGroup.name(id), "provider", provider,
+                "selected", id.equals(current), "state", state, "auth", auth));
+        }
+        return obj("main", current, "mains", mains);
+    }
+
+    /**
+     * Switch the main between turns only. The new main keeps its own native
+     * session cursor (member.nativeSession): a first-time main starts fresh
+     * and is seeded by the shared transcript in its first prompt, while
+     * returning to a previous main resumes where it left off.
+     */
+    private void setMain(String rawId) throws Exception {
+        String id = MainRouting.normalize(rawId);
+        if (id == null) throw new IOException(t("지원하지 않는 메인입니다: ") + rawId);
+        if (!liveRemote.isBlank() || groupRunning(threadId) || !turnId.isEmpty())
+            throw new IOException(t("응답 중에는 메인을 바꿀 수 없습니다. 먼저 중지해 주세요."));
+        if (active == null) { draftMain = id; publish(); return; }
+        if (id.equals(active.optString("main", AgentGroup.CODEX))) { publish(); return; }
+        active.put("main", id);
+        ensureMainMember(active, id);
+        persist(); publish();
+    }
+
+    /** Make sure the main has a chat-mode member entry so startAgent can run it. */
+    private void ensureMainMember(JSONObject owner, String mainId) throws Exception {
+        if (AgentGroup.CODEX.equals(mainId)) return;
+        JSONArray agents = owner.optJSONArray("agents");
+        if (agents == null) { agents = new JSONArray(); owner.put("agents", agents); }
+        for (int i = 0; i < agents.length(); i++) {
+            JSONObject agent = agents.optJSONObject(i);
+            if (agent != null && agent.optString("id").equals(mainId)) { agent.put("enabled", true); return; }
+        }
+        agents.put(AgentGroup.newAgent(mainId, "", "", "chat"));
+    }
+
     /** Invites, reconfigures or removes agents of the open chat (or of the next new chat). */
     private void setAgents(JSONArray changes) throws Exception {
         if (!liveRemote.isBlank()) throw new IOException(t("음성 대화를 먼저 종료해 주세요."));

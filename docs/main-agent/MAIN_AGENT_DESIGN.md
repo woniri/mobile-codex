@@ -108,3 +108,47 @@ SDK. Two real parser bugs were found and fixed by these tests
 Not yet tested: real `claude`/`agy` binaries (no CLIs or accounts here),
 and the Android app build/run itself (needs Android SDK + a device).
 Those are the next steps, not claimed here.
+
+## Status (2026-11-04, Engine wiring)
+
+Main selection is now wired in `Engine.java`, reusing the proven rooms
+guest path instead of inventing a new CLI transport:
+
+- RPC `main.list` / `main.set`, and `snapshot.main` so the UI can show
+  the current main. `main.set` works between turns only (refused while a
+  turn, a group run, or a live session is active). The open chat stores
+  its main in the session JSON (`main`: `codex`/`claude`/`gemini`); a
+  chat opened with no active session uses `draftMain`.
+- `chat.send` routing: when the main is Claude or Gemini and the user did
+  not explicitly @codex, the turn goes through the existing guest-only
+  GroupRun (`agents.run` via AgentBridge): the main answers first, then
+  other enabled guests in invitation order. Streaming, stop
+  (`chat.stop` -> `cancelGroup`), persistence, and the busy indicator all
+  come from that machinery unchanged. The Codex path is untouched.
+- Seeding and resume come from the guest machinery too: a first-time main
+  gets a fresh native session and its first prompt carries the shared
+  transcript (`AgentGroup.agentPrompt`), while returning to a previous
+  main resumes via its stored `member.nativeSession` + `cursorId`.
+- `main/MainRouting.java` holds the pure routing rules (id normalization
+  incl. `agy`/`antigravity` aliases, speaker order) with
+  `MainRoutingTest` (12/12 under plain javac/java).
+- Correction to the earlier framing: `ClaudeMainDriver`'s ProcessBuilder
+  does NOT run on the phone. Guest CLIs live inside the app's Linux /
+  devtools environment and are only reachable through AgentBridge
+  (proot launch, per-provider HOME). The driver remains the protocol
+  reference and the JVM-testable host driver; the Android main turn goes
+  through `agents.run`.
+
+Not yet done: a web UI picker for the main (the snapshot field is the
+seam), main turns in read/write mode (v1 main is chat mode, matching the
+plain-chat driver), Codex as a sub (an explicit @codex still leads with
+a Codex turn), Pro consultation under a non-Codex main (refused, it
+needs Codex MCP), and removing the Codex-login requirement for
+non-Codex mains (candidate/thread creation still goes through the
+Codex app-server). Real-phone verification is still pending: no device
+or CLI accounts in this VM.
+
+Verification (2026-11-04 01:12 KST): `assembleDebug` BUILD SUCCESSFUL
+with the wiring included (APK app-debug.apk, version 0.3.5, ~237MB);
+`MainRoutingTest` 12/12 and the earlier `MainDriverTest` 9/9 pass under
+plain javac/java. The wiring itself is not yet committed.
