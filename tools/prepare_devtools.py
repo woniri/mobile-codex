@@ -444,9 +444,19 @@ def safe_tar_members(archive: tarfile.TarFile) -> Iterable[tarfile.TarInfo]:
             raise PackagingError(f"unsupported tar member type: {member.name!r}")
         if member.issym():
             link = member.linkname.replace("\\", "/")
-            resolved = posixpath.normpath(posixpath.join(posixpath.dirname(normalized), link))
-            if link.startswith("/") or resolved.startswith("../"):
-                raise PackagingError(f"unsafe tar symlink: {member.name!r}")
+            if link.startswith("/"):
+                # Absolute links are only safe when they stay inside the fixed
+                # Termux prefix (e.g. pip's vendored certifi cacert.pem points
+                # at /data/data/com.termux/files/usr/etc/tls/cert.pem). Anything
+                # else is rejected exactly as before.
+                resolved = posixpath.normpath(link)
+                prefix = TERMUX_PREFIX.decode("ascii") + "/"
+                if not resolved.startswith(prefix):
+                    raise PackagingError(f"unsafe tar symlink: {member.name!r}")
+            else:
+                resolved = posixpath.normpath(posixpath.join(posixpath.dirname(normalized), link))
+                if resolved.startswith("../"):
+                    raise PackagingError(f"unsafe tar symlink: {member.name!r}")
         elif not (member.isfile() or member.isdir()):
             raise PackagingError(f"unsupported tar member type: {member.name!r}")
         yield member
@@ -718,7 +728,15 @@ def prepare(lock: dict[str, Any] | None = None) -> dict[str, Any]:
                     if member.issym():
                         if relative in files or relative in symlinks:
                             raise PackagingError(f"duplicate installed path: {relative}")
-                        symlinks[relative] = posixpath.normpath(posixpath.join(posixpath.dirname(relative), member.linkname))
+                        link = member.linkname.replace("\\", "/")
+                        if link.startswith("/"):
+                            # Absolute in-prefix link (validated by
+                            # safe_tar_members): store it prefix-relative so
+                            # downstream resolution sees a relative target.
+                            prefix = TERMUX_PREFIX.decode("ascii") + "/"
+                            symlinks[relative] = posixpath.normpath(link[len(prefix):])
+                        else:
+                            symlinks[relative] = posixpath.normpath(posixpath.join(posixpath.dirname(relative), link))
                         continue
                     stream = archive.extractfile(member)
                     if stream is None:

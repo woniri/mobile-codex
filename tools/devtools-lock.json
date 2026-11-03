@@ -2,51 +2,51 @@
   "architecture": "aarch64",
   "buildRecipe": "tools/prepare_devtools.py --write-lock && tools/prepare_devtools.py",
   "index": {
-    "sha256": "2706905529c6c1853ef82767b110920d6946847271f1013966e41f2f070553a6",
+    "sha256": "6bbc24af6c44933e5dcfaf3d9fe63e1810361e0738536255d521a6b19f7022c9",
     "url": "https://packages.termux.dev/apt/termux-main/dists/stable/main/binary-aarch64/Packages"
   },
   "packages": [
     {
       "architecture": "aarch64",
       "depends": "resolv-conf",
-      "filename": "pool/main/c/c-ares/c-ares_1.34.8_aarch64.deb",
+      "filename": "pool/main/c/c-ares/c-ares_1.34.9_aarch64.deb",
       "homepage": "https://c-ares.org/",
       "license": "MIT",
       "name": "c-ares",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/c-ares/build.sh",
-      "recipeVersion": "1.34.8",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/c-ares/build.sh",
+      "recipeVersion": "1.34.9",
       "recipeVersionMatches": true,
-      "sha256": "7681fc23e822d7988ba8b2adf3468f93ae68f724dda365cff1385096a9fa87e6",
-      "size": 194924,
+      "sha256": "623d84855e176f3f2a415d24c0e1d2f529356f4b5439bb3313e6d7ff0da4585c",
+      "size": 200208,
       "sourceArchiveStatus": "complete",
       "sources": [
         {
-          "sha256": "ddf8be8b179ef6ff656e7413da93cf0f3038c627aca29ce9aae30f66e5b32bc1",
-          "url": "https://github.com/c-ares/c-ares/archive/refs/tags/v1.34.8.tar.gz"
+          "sha256": "453bab9eb8c2bd4343b527dd97dbd77e1fab6608781dda2dbbfde7e480882c97",
+          "url": "https://github.com/c-ares/c-ares/archive/refs/tags/v1.34.9.tar.gz"
         }
       ],
-      "version": "1.34.8"
+      "version": "1.34.9"
     },
     {
       "architecture": "all",
       "depends": "",
-      "filename": "pool/main/c/ca-certificates/ca-certificates_1:2026.08.13_all.deb",
+      "filename": "pool/main/c/ca-certificates/ca-certificates_1:2026.10.20-1_all.deb",
       "homepage": "https://curl.se/docs/caextract.html",
       "license": "MPL-2.0",
       "name": "ca-certificates",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/ca-certificates/build.sh",
-      "recipeVersion": "1:2026.08.13",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/ca-certificates/build.sh",
+      "recipeVersion": "1:2026.10.20",
       "recipeVersionMatches": true,
-      "sha256": "8e894fb885da738b4ca9a7932703e414d730fa32e78aba33046a747822547d5a",
-      "size": 105404,
+      "sha256": "ab8a7fe63293b455c02399ee125eb8a0041e430ccfdf89a5be8317522fdf9107",
+      "size": 110132,
       "sourceArchiveStatus": "complete",
       "sources": [
         {
-          "sha256": "f66dff1bdf8f96060b8177976f8b7d9254bc89bc4db933d769f7384d28480bc9",
-          "url": "https://curl.se/ca/cacert-2026-08-13.pem"
+          "sha256": "796f1389bfea13c0ed78f663b765baaff54a508e5483786bd6ece73c5e3e3cbe",
+          "url": "https://curl.se/ca/cacert-2026-10-20-1.pem"
         }
       ],
-      "version": "1:2026.08.13"
+      "version": "1:2026.10.20-1"
     },
     {
       "architecture": "aarch64",
@@ -55,7 +55,7 @@
       "homepage": "https://www.gnu.org.ua/software/gdbm/",
       "license": "GPL-3.0",
       "name": "gdbm",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/gdbm/build.sh",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/gdbm/build.sh",
       "recipeVersion": "1.26",
       "recipeVersionMatches": true,
       "sha256": "c378de833aae3cf41f3028491ea11836479d9833ab653edc27d0c0e0e691d5c5",
@@ -72,23 +72,23 @@
     {
       "architecture": "aarch64",
       "depends": "libcurl, libexpat, libiconv, less, openssl, pcre2, zlib",
-      "filename": "pool/main/g/git/git_2.55.0_aarch64.deb",
+      "filename": "pool/main/g/git/git_2.56.0_aarch64.deb",
       "homepage": "https://git-scm.com/",
       "license": "GPL-2.0",
       "name": "git",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/git/build.sh",
-      "recipeVersion": "2.55.0",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/git/build.sh",
+      "recipeVersion": "2.56.0",
       "recipeVersionMatches": true,
-      "sha256": "21b16fa06837e5bf94ad257da532c40eb049c120d21f6cb60a6411c0bcee7197",
-      "size": 4486868,
+      "sha256": "dcdd22c5fdf7bdb5b825a03a17441d43858ed8515fea57fbb37eb42e733ca82f",
+      "size": 4541040,
       "sourceArchiveStatus": "complete",
       "sources": [
         {
-          "sha256": "457fdb04dc8728e007d4688695e6912e6f680727920f2a40bf11eacc17505357",
-          "url": "https://mirrors.kernel.org/pub/software/scm/git/git-2.55.0.tar.xz"
+          "sha256": "26c56c296b38c0695b26fa95f475f1d01704d2d38e73465ca30b0b2f5dc789d3",
+          "url": "https://mirrors.kernel.org/pub/software/scm/git/git-2.56.0.tar.xz"
         }
       ],
-      "version": "2.55.0"
+      "version": "2.56.0"
     },
     {
       "architecture": "aarch64",
@@ -97,7 +97,7 @@
       "homepage": "https://www.greenwoodsoftware.com/less/",
       "license": "GPL-3.0, custom",
       "name": "less",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/less/build.sh",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/less/build.sh",
       "recipeVersion": "710",
       "recipeVersionMatches": true,
       "sha256": "bff261b48553bcde3a93e0d7c2a51dbb1b7e5025767a1ee9a1cb4459a3789499",
@@ -118,7 +118,7 @@
       "homepage": "https://man7.org/linux/man-pages/man7/sem_overview.7.html",
       "license": "MIT",
       "name": "libandroid-posix-semaphore",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/libandroid-posix-semaphore/build.sh",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/libandroid-posix-semaphore/build.sh",
       "recipeVersion": "0.1",
       "recipeVersionMatches": true,
       "sha256": "0efa8677a0166315ba4e685863712eba0ca0a1732827492f38226e2723730c7a",
@@ -134,11 +134,7 @@
       "homepage": "https://github.com/termux/libandroid-shmem",
       "license": "BSD 3-Clause",
       "name": "libandroid-shmem",
-      "recipe": "https://github.com/termux/termux-packages/blob/4f795f7ab7c7e0806d47a8891caa280cd8dfbe41/packages/libandroid-shmem/build.sh",
-      "recipeArchive": {
-        "sha256": "ca5cfed866182b1332aa0843c932bbb5067c4e178356c38d081beac81878eca6",
-        "url": "https://codeload.github.com/termux/termux-packages/tar.gz/4f795f7ab7c7e0806d47a8891caa280cd8dfbe41"
-      },
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/libandroid-shmem/build.sh",
       "recipeVersion": "0.7",
       "recipeVersionMatches": true,
       "sha256": "0da3a24d558b93c92bcf8d611e0826a99ff96e396b148e6cdf33b47c47c57ff6",
@@ -159,7 +155,7 @@
       "homepage": "https://github.com/termux/libandroid-support",
       "license": "Apache-2.0, MIT",
       "name": "libandroid-support",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/libandroid-support/build.sh",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/libandroid-support/build.sh",
       "recipeVersion": "29",
       "recipeVersionMatches": true,
       "sha256": "f2f145d6135ad4843ac9670153be3e3944dc1e6f1736d46d2306c28f2b86f517",
@@ -184,7 +180,7 @@
       "homepage": "http://www.bzip.org/",
       "license": "BSD",
       "name": "libbz2",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/libbz2/build.sh",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/libbz2/build.sh",
       "recipeVersion": "1.0.8",
       "recipeVersionMatches": true,
       "sha256": "4335d7f060650b0aabef545d1334c2f9f280223d5962e13c24a00ec934b794ba",
@@ -201,23 +197,23 @@
     {
       "architecture": "aarch64",
       "depends": "",
-      "filename": "pool/main/libc/libc++/libc++_29_aarch64.deb",
+      "filename": "pool/main/libc/libc++/libc++_30_aarch64.deb",
       "homepage": "https://libcxx.llvm.org/",
       "license": "NCSA",
       "name": "libc++",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/libc++/build.sh",
-      "recipeVersion": "29",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/libc++/build.sh",
+      "recipeVersion": "30",
       "recipeVersionMatches": true,
-      "sha256": "bb9f12113c137aa0e8513bb51cc49fe77a5ce3ca39ab9e92c57d228ecdf00222",
-      "size": 334828,
+      "sha256": "53d0b84a7ba7459024257cb94d5b136fe13ef858567f65a8064b35950799f2ca",
+      "size": 341604,
       "sourceArchiveStatus": "complete",
       "sources": [
         {
-          "sha256": "4abbbcdc842f3d4879206e9695d52709603e52dd68d3c1fff04b3b5e7a308ecf",
-          "url": "https://dl.google.com/android/repository/android-ndk-r29-linux.zip"
+          "sha256": "753611f410d002cfcd3f3dc2ef49aad532089d3180b436c060a90bf0fcb64df2",
+          "url": "https://dl.google.com/android/repository/android-ndk-r30-linux.zip"
         }
       ],
-      "version": "29"
+      "version": "30"
     },
     {
       "architecture": "aarch64",
@@ -226,7 +222,7 @@
       "homepage": "http://michael.dipperstein.com/crypt/",
       "license": "BSD 2-Clause",
       "name": "libcrypt",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/libcrypt/build.sh",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/libcrypt/build.sh",
       "recipeVersion": "0.2",
       "recipeVersionMatches": true,
       "sha256": "6c283eed576b98cc3568f99638156f8588f77d979579d03bef8683d6eb8601e1",
@@ -238,44 +234,44 @@
     {
       "architecture": "aarch64",
       "depends": "libnghttp2, libnghttp3, libngtcp2, libssh2, openssl (>= 1:3.2.1-1), zlib",
-      "filename": "pool/main/libc/libcurl/libcurl_8.22.0_aarch64.deb",
+      "filename": "pool/main/libc/libcurl/libcurl_8.23.0_aarch64.deb",
       "homepage": "https://curl.se/",
       "license": "MIT",
       "name": "libcurl",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/libcurl/build.sh",
-      "recipeVersion": "8.22.0",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/libcurl/build.sh",
+      "recipeVersion": "8.23.0",
       "recipeVersionMatches": true,
-      "sha256": "e780d925d977c32a3cfe6a2c7d340f0726618786deee98b0cb8b601efb93a8c9",
-      "size": 1032924,
+      "sha256": "2011bb9709261bb3d5ecaa6672faa333be14cf48ad4af37031e3e365309557ac",
+      "size": 1043340,
       "sourceArchiveStatus": "complete",
       "sources": [
         {
-          "sha256": "f7ef3ae8a22e521f289803fe93543eb64c329b58aa73a9e224dfd915a2a5f4f7",
-          "url": "https://github.com/curl/curl/releases/download/curl-8_22_0/curl-8.22.0.tar.xz"
+          "sha256": "8dadd7d2536a314f982ad05a651b713f426bf7d02cc2c76cffb9796f2218e6c5",
+          "url": "https://github.com/curl/curl/releases/download/curl-8_23_0/curl-8.23.0.tar.xz"
         }
       ],
-      "version": "8.22.0"
+      "version": "8.23.0"
     },
     {
       "architecture": "aarch64",
       "depends": "",
-      "filename": "pool/main/libe/libexpat/libexpat_2.8.4_aarch64.deb",
+      "filename": "pool/main/libe/libexpat/libexpat_2.10.0_aarch64.deb",
       "homepage": "https://libexpat.github.io/",
       "license": "MIT",
       "name": "libexpat",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/libexpat/build.sh",
-      "recipeVersion": "2.8.4",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/libexpat/build.sh",
+      "recipeVersion": "2.10.0",
       "recipeVersionMatches": true,
-      "sha256": "71934cf00b404627702034bd1308cb58353dd851d9a2d3ecd9205b4ae6a67a27",
-      "size": 97284,
+      "sha256": "0e4411f01f6fb664f3f04f9420289472f9afc30db01ea1c5d1e57fd9fa2354be",
+      "size": 102436,
       "sourceArchiveStatus": "complete",
       "sources": [
         {
-          "sha256": "963250a823c16a498582b4ad82ad0f88926be0769675d3b6956be4d769a1cd8f",
-          "url": "https://github.com/libexpat/libexpat/releases/download/R_2_8_4/expat-2.8.4.tar.bz2"
+          "sha256": "44e0139015f1c9908d0876b5516235136f16b14932d8f6634a16737a12742f53",
+          "url": "https://github.com/libexpat/libexpat/releases/download/R_2_10_0/expat-2.10.0.tar.bz2"
         }
       ],
-      "version": "2.8.4"
+      "version": "2.10.0"
     },
     {
       "architecture": "aarch64",
@@ -284,7 +280,7 @@
       "homepage": "https://sourceware.org/libffi/",
       "license": "MIT",
       "name": "libffi",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/libffi/build.sh",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/libffi/build.sh",
       "recipeVersion": "3.8.0",
       "recipeVersionMatches": true,
       "sha256": "4f255badf74cd31f6a2801c17fa1444199c84c834b517b7c843e2fe9ebe91d77",
@@ -305,7 +301,7 @@
       "homepage": "https://www.gnu.org/software/libiconv/",
       "license": "LGPL-2.1, GPL-3.0",
       "name": "libiconv",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/libiconv/build.sh",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/libiconv/build.sh",
       "recipeVersion": "1.19",
       "recipeVersionMatches": true,
       "sha256": "fe9481b1dc101c6c3552943f25435109fd522aecc615ae49594f9fbee863bb37",
@@ -326,7 +322,7 @@
       "homepage": "http://site.icu-project.org/home",
       "license": "custom",
       "name": "libicu",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/libicu/build.sh",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/libicu/build.sh",
       "recipeVersion": "78.3",
       "recipeVersionMatches": true,
       "sha256": "f536403f65a08fe0df6e7304184e902d54def77d5c3bd5edfd9109d57601d276",
@@ -347,7 +343,7 @@
       "homepage": "https://tukaani.org/xz/",
       "license": "LGPL-2.1, GPL-2.0, GPL-3.0",
       "name": "liblzma",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/liblzma/build.sh",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/liblzma/build.sh",
       "recipeVersion": "5.8.4",
       "recipeVersionMatches": true,
       "sha256": "44e95e6e60dddb3705e60a344a4f009a1085a210797342b721eaff41b44033c0",
@@ -368,7 +364,7 @@
       "homepage": "https://nghttp2.org/",
       "license": "MIT",
       "name": "libnghttp2",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/libnghttp2/build.sh",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/libnghttp2/build.sh",
       "recipeVersion": "1.70.0",
       "recipeVersionMatches": true,
       "sha256": "ab2e0a3408fe4934ffdf774bd5049a265db2e6db62dcb651baecbecfb81e3f0b",
@@ -385,94 +381,65 @@
     {
       "architecture": "aarch64",
       "depends": "",
-      "filename": "pool/main/libn/libnghttp3/libnghttp3_1.18.0_aarch64.deb",
+      "filename": "pool/main/libn/libnghttp3/libnghttp3_1.19.0_aarch64.deb",
       "homepage": "https://nghttp2.org/nghttp3/",
       "license": "MIT",
       "name": "libnghttp3",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/libnghttp3/build.sh",
-      "recipeVersion": "1.18.0",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/libnghttp3/build.sh",
+      "recipeVersion": "1.19.0",
       "recipeVersionMatches": true,
-      "sha256": "0be2ee96def3608afaf24eb0b4b55f3484a37c95ea21bb1d6d85c7d543467603",
-      "size": 69668,
+      "sha256": "8bb6fa31f9281cd48047ec9a571cadf153538f5b38f0203ad7a4e221344b14a6",
+      "size": 69948,
       "sourceArchiveStatus": "complete",
       "sources": [
         {
-          "sha256": "aad782c23d3f01bd4bb52c8bac7a553b631ef8115fd1612703df6183449fef19",
-          "url": "https://github.com/ngtcp2/nghttp3/releases/download/v1.18.0/nghttp3-1.18.0.tar.xz"
+          "sha256": "228e17f5cc3d4de7bfced9912bd09de30e7f45741cc47503cf88d3fa9209e155",
+          "url": "https://github.com/ngtcp2/nghttp3/releases/download/v1.19.0/nghttp3-1.19.0.tar.xz"
         }
       ],
-      "version": "1.18.0"
+      "version": "1.19.0"
     },
     {
       "architecture": "aarch64",
       "depends": "openssl",
-      "filename": "pool/main/libn/libngtcp2/libngtcp2_1.25.0_aarch64.deb",
+      "filename": "pool/main/libn/libngtcp2/libngtcp2_1.26.0_aarch64.deb",
       "homepage": "https://github.com/ngtcp2/ngtcp2",
       "license": "MIT",
       "name": "libngtcp2",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/libngtcp2/build.sh",
-      "recipeVersion": "1.25.0",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/libngtcp2/build.sh",
+      "recipeVersion": "1.26.0",
       "recipeVersionMatches": true,
-      "sha256": "f471bad7f4329b6b0b4aedf124e0a23a35f6ac99bfbae73304136f8bfd570fc3",
-      "size": 174068,
+      "sha256": "8225ecde58104ef5aa234fa54a1bea5051a8a9ef2937e5ba996b3e8dda68c8eb",
+      "size": 175116,
       "sourceArchiveStatus": "complete",
       "sources": [
         {
-          "sha256": "1c0843076528a87b65e9a9d455100941f4cb65d44f96c5da6ae56df146043955",
-          "url": "https://github.com/ngtcp2/ngtcp2/releases/download/v1.25.0/ngtcp2-1.25.0.tar.gz"
+          "sha256": "85174d674e7f8fd911a827c6e483fd417b21b1f54d7853dac464cee446c8d35f",
+          "url": "https://github.com/ngtcp2/ngtcp2/releases/download/v1.26.0/ngtcp2-1.26.0.tar.gz"
         }
       ],
-      "version": "1.25.0"
+      "version": "1.26.0"
     },
     {
       "architecture": "aarch64",
       "depends": "zlib",
-      "filename": "pool/main/libs/libsqlite/libsqlite_3.53.4_aarch64.deb",
+      "filename": "pool/main/libs/libsqlite/libsqlite_3.54.1-1_aarch64.deb",
       "homepage": "https://www.sqlite.org",
       "license": "Public Domain",
       "name": "libsqlite",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/libsqlite/build.sh",
-      "recipeVersion": "3.53.4",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/libsqlite/build.sh",
+      "recipeVersion": "3.54.1",
       "recipeVersionMatches": true,
-      "sha256": "0e909ce0d50fe123305446cd22e0c5edf535d40344b9b065fbdcdee52f53198d",
-      "size": 759764,
+      "sha256": "661fb995f7215845007b222a85266ae99d9443e87e0604f8677edfd738e6b81a",
+      "size": 768888,
       "sourceArchiveStatus": "complete",
       "sources": [
         {
-          "sha256": "d18fa15aec74d8c17e1463f861095adc01b5ad190256acb4f91d22f0368d232b",
-          "url": "https://www.sqlite.org/2026/sqlite-src-3530400.zip"
+          "sha256": "387e7f6cad4797b17848c07d453dc6606917bb356a6cfe5a3abafd38c240c71b",
+          "url": "https://www.sqlite.org/2026/sqlite-src-3540100.zip"
         }
       ],
-      "version": "3.53.4"
-    },
-    {
-      "architecture": "aarch64",
-      "depends": "",
-      "filename": "pool/main/libt/libtalloc/libtalloc_2.5.0_aarch64.deb",
-      "homepage": "https://talloc.samba.org/talloc/doc/html/index.html",
-      "license": "GPL-3.0",
-      "name": "libtalloc",
-      "recipe": "https://github.com/termux/termux-packages/blob/505e06ef0c8dbd7611abfb90e9eb60826dcd01d7/packages/libtalloc/build.sh",
-      "recipeArchive": {
-        "url": "https://codeload.github.com/termux/termux-packages/tar.gz/505e06ef0c8dbd7611abfb90e9eb60826dcd01d7",
-        "sha256": "be1e5f6ba5e985ffe5b06dca4b6282263351379e48e895712e3035fdf9761f4d"
-      },
-      "recipeVersion": "2.5.0",
-      "recipeVersionMatches": true,
-      "sha256": "556591f43bb773ad8777e1a29522640866a55f95dab71914418b94a8c58ad5a7",
-      "size": 34036,
-      "sourceArchiveStatus": "complete",
-      "sources": [
-        {
-          "url": "https://www.samba.org/ftp/talloc/talloc-2.5.0.tar.gz",
-          "sha256": "912afa237510ae542a7733998eb18a12bcda35ab6729c8e2ddb43e8d0ebab007"
-        }
-      ],
-      "version": "2.5.0",
-      "index": {
-        "url": "https://packages.termux.dev/apt/termux-main/dists/stable/main/binary-aarch64/Packages",
-        "sha256": "719c52625c036943489fbd956e0f4b9309838bf6a2e3017d9a9918b0931df3c9"
-      }
+      "version": "3.54.1-1"
     },
     {
       "architecture": "aarch64",
@@ -481,7 +448,7 @@
       "homepage": "https://www.libssh2.org",
       "license": "BSD 3-Clause",
       "name": "libssh2",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/libssh2/build.sh",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/libssh2/build.sh",
       "recipeVersion": "1.11.1",
       "recipeVersionMatches": true,
       "sha256": "1add4e0a926b848814e7e2f1817ea28b123c54cabd5bbc4e5cfd65291cbad84e",
@@ -498,11 +465,32 @@
     {
       "architecture": "aarch64",
       "depends": "",
+      "filename": "pool/main/libt/libtalloc/libtalloc_2.5.0_aarch64.deb",
+      "homepage": "https://talloc.samba.org/talloc/doc/html/index.html",
+      "license": "GPL-3.0",
+      "name": "libtalloc",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/libtalloc/build.sh",
+      "recipeVersion": "2.5.0",
+      "recipeVersionMatches": true,
+      "sha256": "556591f43bb773ad8777e1a29522640866a55f95dab71914418b94a8c58ad5a7",
+      "size": 34036,
+      "sourceArchiveStatus": "complete",
+      "sources": [
+        {
+          "sha256": "912afa237510ae542a7733998eb18a12bcda35ab6729c8e2ddb43e8d0ebab007",
+          "url": "https://www.samba.org/ftp/talloc/talloc-2.5.0.tar.gz"
+        }
+      ],
+      "version": "2.5.0"
+    },
+    {
+      "architecture": "aarch64",
+      "depends": "",
       "filename": "pool/main/n/ncurses/ncurses_6.6.20260307+really6.5.20250830_aarch64.deb",
       "homepage": "https://invisible-island.net/ncurses/",
       "license": "MIT",
       "name": "ncurses",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/ncurses/build.sh",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/ncurses/build.sh",
       "recipeVersion": "6.6.20260307+really6.5.20250830",
       "recipeVersionMatches": true,
       "sha256": "f44bbfdc3d42ec0217bffa978309390e59cea5a48a9a83226d4a496c42ad0b99",
@@ -518,8 +506,8 @@
           "url": "https://dist.schmorp.de/rxvt-unicode/Attic/rxvt-unicode-9.31.tar.bz2"
         },
         {
-          "sha256": "b8b51901a4a5545a3b49241b6ea2050dbae509dfabd60ffcdb598a3a1344ec9a",
-          "url": "https://github.com/kovidgoyal/kitty/releases/download/v0.49.0/kitty-0.49.0.tar.xz"
+          "sha256": "aee888a42f6086f9cc5ee009c73f8191d2a3ea119dcaf737fdb37d7f176a54fc",
+          "url": "https://github.com/kovidgoyal/kitty/releases/download/v0.49.2/kitty-0.49.2.tar.xz"
         },
         {
           "sha256": "38d6527d346cda5c6049332a1f3338a89ea66cd7981b54d4c3ce801b392496f8",
@@ -539,7 +527,7 @@
       "homepage": "https://invisible-island.net/ncurses/",
       "license": "MIT",
       "name": "ncurses-ui-libs",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/ncurses/build.sh",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/ncurses/build.sh",
       "recipeVersion": "6.6.20260307+really6.5.20250830",
       "recipeVersionMatches": true,
       "sha256": "7393f369009be189b3d4ec1f9b16ebd57621d6a1b22949ae07685573950d1f37",
@@ -555,8 +543,8 @@
           "url": "https://dist.schmorp.de/rxvt-unicode/Attic/rxvt-unicode-9.31.tar.bz2"
         },
         {
-          "sha256": "b8b51901a4a5545a3b49241b6ea2050dbae509dfabd60ffcdb598a3a1344ec9a",
-          "url": "https://github.com/kovidgoyal/kitty/releases/download/v0.49.0/kitty-0.49.0.tar.xz"
+          "sha256": "aee888a42f6086f9cc5ee009c73f8191d2a3ea119dcaf737fdb37d7f176a54fc",
+          "url": "https://github.com/kovidgoyal/kitty/releases/download/v0.49.2/kitty-0.49.2.tar.xz"
         },
         {
           "sha256": "38d6527d346cda5c6049332a1f3338a89ea66cd7981b54d4c3ce801b392496f8",
@@ -572,213 +560,168 @@
     {
       "architecture": "aarch64",
       "depends": "libc++, openssl, c-ares, libicu, libsqlite, zlib",
-      "filename": "pool/main/n/nodejs-lts/nodejs-lts_24.18.0-1_aarch64.deb",
+      "filename": "pool/main/n/nodejs-lts/nodejs-lts_24.22.2_aarch64.deb",
       "homepage": "https://nodejs.org/",
       "license": "MIT",
       "name": "nodejs-lts",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/nodejs-lts/build.sh",
-      "recipeVersion": "24.18.0",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/nodejs-lts/build.sh",
+      "recipeVersion": "24.22.2",
       "recipeVersionMatches": true,
-      "sha256": "490f4d08c45b25a7ea7db6ee466ebb3ee61f07083260b85332704ed018f59a87",
-      "size": 9743764,
+      "sha256": "150d7dd382e92587808d96813b9538fe5c6c41fa33f1a1033daa4e30c6ff2695",
+      "size": 9995416,
       "sourceArchiveStatus": "complete",
       "sources": [
         {
-          "sha256": "e94afde24db08e0c564ee7110a2d5aab51ee0059382c9fd8233c54eec47b28f9",
-          "url": "https://nodejs.org/dist/v24.18.0/node-v24.18.0.tar.xz"
+          "sha256": "8fe2ec1723bb9f8d0b683907c82708debbeda64af21cb2aa214c4241eed0a061",
+          "url": "https://nodejs.org/dist/v24.22.2/node-v24.22.2.tar.xz"
         }
       ],
-      "version": "24.18.0-1"
+      "version": "24.22.2"
     },
     {
       "architecture": "all",
       "depends": "nodejs | nodejs-lts",
-      "filename": "pool/main/n/npm/npm_11.19.1_all.deb",
+      "filename": "pool/main/n/npm/npm_12.2.1_all.deb",
       "homepage": "https://docs.npmjs.com/cli/",
       "license": "Artistic-License-2.0",
       "name": "npm",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/npm/build.sh",
-      "recipeVersion": "11.19.1",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/npm/build.sh",
+      "recipeVersion": "12.2.1",
       "recipeVersionMatches": true,
-      "sha256": "bb7a736be3229d28af7986365b0738e19619368d0f12cdd4d34b02962dc8b05c",
-      "size": 2024972,
+      "sha256": "2898344f7f54a44ead5926f0e03e958bee00e839c6fd84a47d54278ecb4a13e6",
+      "size": 2065420,
       "sourceArchiveStatus": "complete",
       "sources": [
         {
-          "sha256": "e2e5cf2209565ec98c8602bbe2bd6002fa55e0af45cd903eb3869955678030ba",
-          "url": "https://codeload.github.com/npm/cli/tar.gz/refs/tags/v11.19.1"
+          "sha256": "a7bba8c40e179d3be92176026f6c29caf6a8c7b0fcae4eb71951a9e103ac6f9e",
+          "url": "git+https://github.com/npm/cli.git"
         }
       ],
-      "version": "11.19.1"
+      "version": "12.2.1"
     },
     {
       "architecture": "aarch64",
       "depends": "ca-certificates, zlib",
-      "filename": "pool/main/o/openssl/openssl_1:3.6.3_aarch64.deb",
+      "filename": "pool/main/o/openssl/openssl_1:3.6.5_aarch64.deb",
       "homepage": "https://www.openssl.org/",
       "license": "Apache-2.0",
       "name": "openssl",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/openssl/build.sh",
-      "recipeVersion": "1:3.6.3",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/openssl/build.sh",
+      "recipeVersion": "1:3.6.5",
       "recipeVersionMatches": true,
-      "sha256": "86760e9ce736f463236f2c15b1eb3a3fdcfc5778d0fd7077a917448dcc90f3aa",
-      "size": 2478376,
+      "sha256": "a2fb7856875e63ef6b90442752e05974813372c3ca86d2513a78ea43c67a0f8b",
+      "size": 2482764,
       "sourceArchiveStatus": "complete",
       "sources": [
         {
-          "sha256": "243a86649cf6f23eeb6a2ff2456e09e5d77dd9018a54d3d96b0c6bdd6ba6c7f1",
-          "url": "https://github.com/openssl/openssl/releases/download/openssl-3.6.3/openssl-3.6.3.tar.gz"
+          "sha256": "a2157c2830efdec3788939b00c9b0638306d3f0bbb76dc4832ee503bb397df98",
+          "url": "https://github.com/openssl/openssl/releases/download/openssl-3.6.5/openssl-3.6.5.tar.gz"
         }
       ],
-      "version": "1:3.6.3"
+      "version": "1:3.6.5"
     },
     {
       "architecture": "aarch64",
       "depends": "",
-      "filename": "pool/main/p/pcre2/pcre2_10.47_aarch64.deb",
+      "filename": "pool/main/p/pcre2/pcre2_10.49_aarch64.deb",
       "homepage": "https://pcre2project.github.io/pcre2/",
       "license": "BSD 3-Clause",
       "name": "pcre2",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/pcre2/build.sh",
-      "recipeVersion": "10.47",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/pcre2/build.sh",
+      "recipeVersion": "10.49",
       "recipeVersionMatches": true,
-      "sha256": "51f915d22de639bfca6ec029ae613987bbe3bc73626eede13319fd2e95f50b63",
-      "size": 961200,
+      "sha256": "c27995e5f52b8ecc9b8b3e662eb08e49f82a18bfd3f34343936acc7b23964724",
+      "size": 1001320,
       "sourceArchiveStatus": "complete",
       "sources": [
         {
-          "sha256": "47fe8c99461250d42f89e6e8fdaeba9da057855d06eb7fc08d9ca03fd08d7bc7",
-          "url": "https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.47/pcre2-10.47.tar.bz2"
+          "sha256": "53c156e1ba416a20da8e65395daa132da0d80e76910424caca3fcdae7831d384",
+          "url": "https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.49/pcre2-10.49.tar.bz2"
         }
       ],
-      "version": "10.47"
+      "version": "10.49"
     },
     {
       "architecture": "aarch64",
       "depends": "libandroid-shmem, libtalloc",
-      "filename": "pool/main/p/proot/proot_5.1.107.96_aarch64.deb",
+      "filename": "pool/main/p/proot/proot_5.1.107.102_aarch64.deb",
       "homepage": "https://proot-me.github.io/",
       "license": "GPL-2.0",
       "name": "proot",
-      "recipe": "https://github.com/termux/termux-packages/blob/505e06ef0c8dbd7611abfb90e9eb60826dcd01d7/packages/proot/build.sh",
-      "recipeArchive": {
-        "url": "https://codeload.github.com/termux/termux-packages/tar.gz/505e06ef0c8dbd7611abfb90e9eb60826dcd01d7",
-        "sha256": "be1e5f6ba5e985ffe5b06dca4b6282263351379e48e895712e3035fdf9761f4d"
-      },
-      "recipeVersion": "5.1.107.96",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/proot/build.sh",
+      "recipeVersion": "5.1.107.102",
       "recipeVersionMatches": true,
-      "sha256": "8199dca06dccb693ec09fb1759e3e1ad08b4863f0c11c612f89c20bd9ecdc1a0",
-      "size": 98800,
+      "sha256": "10a394b585c2fc2b2c8502544f4e5f1be581dc8bfff79e8ba62f16207423e030",
+      "size": 103028,
       "sourceArchiveStatus": "complete",
       "sources": [
         {
-          "url": "https://github.com/termux/proot/archive/v5.1.107.96.zip",
-          "sha256": "75f654fe60dea92dabff2bf083ae8bfe4f91baa6a1a374786a6bf391015eebaa"
+          "sha256": "30d12a6e2cc4147123756ff58edea262d3083bbc238c12d0ab9b39e3d1c40852",
+          "url": "https://github.com/termux/proot/archive/v5.1.107.102.zip"
         }
       ],
-      "version": "5.1.107.96",
-      "index": {
-        "url": "https://packages.termux.dev/apt/termux-main/dists/stable/main/binary-aarch64/Packages",
-        "sha256": "719c52625c036943489fbd956e0f4b9309838bf6a2e3017d9a9918b0931df3c9"
-      }
+      "version": "5.1.107.102"
     },
     {
       "architecture": "aarch64",
       "depends": "gdbm, libandroid-posix-semaphore, libandroid-support, libbz2, libcrypt, libexpat, libffi, liblzma, libsqlite, ncurses, ncurses-ui-libs, openssl, readline, zlib, zstd",
-      "filename": "pool/main/p/python/python_3.14.6-1_aarch64.deb",
+      "filename": "pool/main/p/python/python_3.14.8_aarch64.deb",
       "homepage": "https://python.org/",
       "license": "custom",
       "name": "python",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/python/build.sh",
-      "recipeVersion": "3.14.6",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/python/build.sh",
+      "recipeVersion": "3.14.8",
       "recipeVersionMatches": true,
-      "sha256": "3166e56c2b6c03fff41191fbb9d736302978e7c484702814d9f6dc99dd6006bd",
-      "size": 4816756,
+      "sha256": "55fcd7c23a603ba0caeca3ef9e670ec88ff71c1a480101de4983629792563b5e",
+      "size": 4852092,
       "sourceArchiveStatus": "complete",
       "sources": [
         {
-          "sha256": "143b1dddefaec3bd2e21e3b839b34a2b7fb9842272883c576420d605e9f30c63",
-          "url": "https://www.python.org/ftp/python/3.14.6/Python-3.14.6.tar.xz"
+          "sha256": "c2215904f02b175596dc49351585104f4bc20341e1c47378b26a2c274360ce73",
+          "url": "https://www.python.org/ftp/python/3.14.8/Python-3.14.8.tar.xz"
         },
         {
           "sha256": "3b7a76c144d39f5c4a2c7789fd4beb3266980c2e667ad36167e1e7a357c684b0",
           "url": "https://salsa.debian.org/cpython-team/python3-defaults/-/archive/f358ab52bf2932ad55b1a72a29c9762169e6ac47/python3-defaults-f358ab52bf2932ad55b1a72a29c9762169e6ac47.tar.gz"
         }
       ],
-      "version": "3.14.6-1"
+      "version": "3.14.8"
     },
     {
       "architecture": "all",
-      "depends": "python (>= 3.11.1-1)",
-      "filename": "pool/main/p/python-pip/python-pip_26.2.1_all.deb",
+      "depends": "ca-certificates, python (>= 3.11.1-1)",
+      "filename": "pool/main/p/python-pip/python-pip_26.2.2-2_all.deb",
       "homepage": "https://pip.pypa.io/",
       "license": "MIT",
       "name": "python-pip",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/python-pip/build.sh",
-      "recipeVersion": "26.2.1",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/python-pip/build.sh",
+      "recipeVersion": "26.2.2",
       "recipeVersionMatches": true,
-      "sha256": "92a9cb4b3c99dd20086f90fedc95c604eefc5bd0f88d1862690884474f82de44",
-      "size": 1190440,
+      "sha256": "23ed8ac9de43feaf0e2171451a3e6cc3cccedc32e90c01c894489babe078e6a2",
+      "size": 1071260,
       "sourceArchiveStatus": "complete",
       "sources": [
         {
-          "sha256": "65cac79de403d368cc8333f3d9981f293248dc336662338749693ff99659d5e3",
-          "url": "https://github.com/pypa/pip/archive/refs/tags/26.2.1.tar.gz"
+          "sha256": "b505949bb27827b32f54c9f1f5ca660a6fae3fde61cbe0a971975a3ed34a7ee1",
+          "url": "https://github.com/pypa/pip/archive/refs/tags/26.2.2.tar.gz"
         }
       ],
-      "version": "26.2.1"
+      "version": "26.2.2-2"
     },
     {
       "architecture": "aarch64",
       "depends": "libandroid-support, ncurses",
       "filename": "pool/main/r/readline/readline_8.3.6_aarch64.deb",
       "homepage": "https://tiswww.case.edu/php/chet/readline/rltop.html",
-      "index": {
-        "sha256": "c6168f627fb56d0637606b1882f00793fc4cfdc4a044364b7bc09e82e80a08d7",
-        "url": "https://packages.termux.dev/apt/termux-main/dists/stable/main/binary-aarch64/Packages"
-      },
       "license": "GPL-3.0",
       "name": "readline",
-      "recipe": "https://github.com/termux/termux-packages/blob/d005fcc8961ca61cd3715555526c324e3d0e68e4/packages/readline/build.sh",
-      "recipeArchive": {
-        "sha256": "dba585ddab6b8711da5decb32526d82ec716b1ec48caaf8ced3b9f24822884b4",
-        "url": "https://codeload.github.com/termux/termux-packages/tar.gz/d005fcc8961ca61cd3715555526c324e3d0e68e4"
-      },
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/readline/build.sh",
       "recipeVersion": "8.3.6",
       "recipeVersionMatches": true,
       "sha256": "616cc73009bc0223f61caed8dd09455714455aa5ea5e180126e2f69c4c775136",
       "size": 294164,
-      "sourceArchiveStatus": "complete",
-      "sources": [
-        {
-          "sha256": "fe5383204467828cd495ee8d1d3c037a7eba1389c22bc6a041f627976f9061cc",
-          "url": "https://mirrors.kernel.org/gnu/readline/readline-8.3.tar.gz"
-        },
-        {
-          "sha256": "21f0a03106dbe697337cd25c70eb0edbaa2bdb6d595b45f83285cdd35bac84de",
-          "url": "https://mirrors.kernel.org/gnu/readline/readline-8.3-patches/readline83-001"
-        },
-        {
-          "sha256": "e27364396ba9f6debf7cbaaf1a669e2b2854241ae07f7eca74ca8a8ba0c97472",
-          "url": "https://mirrors.kernel.org/gnu/readline/readline-8.3-patches/readline83-002"
-        },
-        {
-          "sha256": "72dee13601ce38f6746eb15239999a7c56f8e1ff5eb1ec8153a1f213e4acdb29",
-          "url": "https://mirrors.kernel.org/gnu/readline/readline-8.3-patches/readline83-003"
-        },
-        {
-          "sha256": "1f189c4566aa35950964647b9ec3be1a821e42b86048129c63eb7f9d4d2f5a74",
-          "url": "https://mirrors.kernel.org/gnu/readline/readline-8.3-patches/readline83-004"
-        },
-        {
-          "sha256": "5481adbe161c9f6ba972c74db9e18c7aa351d3df3035cc4a673a1aa06247d1c6",
-          "url": "https://mirrors.kernel.org/gnu/readline/readline-8.3-patches/readline83-005"
-        },
-        {
-          "sha256": "4ebd261a608287796e171af0ea9af5a1e3122e46672accda2484b6698c47c1a4",
-          "url": "https://mirrors.kernel.org/gnu/readline/readline-8.3-patches/readline83-006"
-        }
-      ],
+      "sourceArchiveStatus": "partial",
+      "sources": [],
       "version": "8.3.6"
     },
     {
@@ -788,7 +731,7 @@
       "homepage": "https://man7.org/linux/man-pages/man5/resolv.conf.5.html",
       "license": "Public Domain",
       "name": "resolv-conf",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/resolv-conf/build.sh",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/resolv-conf/build.sh",
       "recipeVersion": "1.3",
       "recipeVersionMatches": true,
       "sha256": "ab541abac8e0c81709cd7ca4a02bcfa0d60ba1f4bfe7fd6dce4a694a4a9dfffa",
@@ -804,7 +747,7 @@
       "homepage": "https://www.zlib.net/",
       "license": "ZLIB",
       "name": "zlib",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/zlib/build.sh",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/zlib/build.sh",
       "recipeVersion": "1.3.2",
       "recipeVersionMatches": true,
       "sha256": "75e7d0af17fcc3b40004309fdc00a1ddb9ae08346dce5e269902c34ac3966ac9",
@@ -825,7 +768,7 @@
       "homepage": "https://github.com/facebook/zstd",
       "license": "GPL-2.0",
       "name": "zstd",
-      "recipe": "https://github.com/termux/termux-packages/blob/40a00dd69107b62d7c9cc71109b3c8fab9802b07/packages/zstd/build.sh",
+      "recipe": "https://github.com/termux/termux-packages/blob/8b361f9cfc260c82a41daf465040989ab5fd9434/packages/zstd/build.sh",
       "recipeVersion": "1.5.7",
       "recipeVersionMatches": true,
       "sha256": "e1b4a5113648da8de189620ba1fce74c48b2d0833d9043391b9a1c91fb606fd3",
@@ -842,8 +785,8 @@
   ],
   "poolUrl": "https://packages.termux.dev/apt/termux-main/",
   "recipeArchive": {
-    "sha256": "defecd167fe2e6a8fa54d3839ae0c2fca26530016deb49edc03f46d35dbe8953",
-    "url": "https://codeload.github.com/termux/termux-packages/tar.gz/40a00dd69107b62d7c9cc71109b3c8fab9802b07"
+    "sha256": "57591a621c7bda16d723a565dd96dec8f19895b44cc85e5c220b4d416ea5f4ff",
+    "url": "https://codeload.github.com/termux/termux-packages/tar.gz/8b361f9cfc260c82a41daf465040989ab5fd9434"
   },
   "schema": 1,
   "targets": [
@@ -855,5 +798,5 @@
     "ca-certificates",
     "proot"
   ],
-  "termuxPackagesRecipeCommit": "40a00dd69107b62d7c9cc71109b3c8fab9802b07"
+  "termuxPackagesRecipeCommit": "8b361f9cfc260c82a41daf465040989ab5fd9434"
 }
